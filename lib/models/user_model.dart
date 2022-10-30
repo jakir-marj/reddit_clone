@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 
 class UserModel {
@@ -7,7 +8,7 @@ class UserModel {
   final String uid;
   final bool isAuthenticated; //if guest or not
   final int karma;
-  final List<String> awards;
+  final List awards;
   UserModel({
     required this.name,
     required this.profilePic,
@@ -51,6 +52,20 @@ class UserModel {
   }
 
   factory UserModel.fromMap(Map<String, dynamic> map) {
+    return UserModel(
+        name: map['name'] as String,
+        profilePic: map['profilePic'] as String,
+        banner: map['banner'] as String,
+        uid: map['uid'] as String,
+        isAuthenticated: map['isAuthenticated'] as bool,
+        karma: map['karma'] as int,
+        awards: map['awards'] as List
+        // List<String>.from(
+        //   (map['awards'] as List<String>),
+        // ),
+        );
+  }
+  factory UserModel.fromdoc(DocumentSnapshot map) {
     return UserModel(
         name: map['name'] as String,
         profilePic: map['profilePic'] as String,
