@@ -6,6 +6,18 @@ class CommunityListDrawer extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return const Drawer();
+    return Drawer(
+      child: SafeArea(
+        child: Column(
+          children: [
+            ListTile(
+              title: const Text("Add New Community"),
+              leading: const Icon(Icons.add),
+              onTap: () {},
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
