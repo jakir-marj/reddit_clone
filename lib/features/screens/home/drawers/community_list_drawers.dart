@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:reddit_clone/router/route_name.dart';
+import 'package:routemaster/routemaster.dart';
 
 class CommunityListDrawer extends ConsumerWidget {
   const CommunityListDrawer({super.key});
+
+  void navigateToCreateCommunity(BuildContext context) {
+    Routemaster.of(context).push(RouterConstants.createCommunity);
+  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -11,9 +17,9 @@ class CommunityListDrawer extends ConsumerWidget {
         child: Column(
           children: [
             ListTile(
-              title: const Text("Add New Community"),
+              title: const Text("Create a Community"),
               leading: const Icon(Icons.add),
-              onTap: () {},
+              onTap: () => navigateToCreateCommunity(context),
             )
           ],
         ),
