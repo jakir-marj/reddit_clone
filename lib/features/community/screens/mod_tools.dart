@@ -1,13 +1,16 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:reddit_clone/router/route_name.dart';
 import 'package:routemaster/routemaster.dart';
 
 class ModToolsScreen extends ConsumerWidget {
-  const ModToolsScreen({super.key});
+  final String name;
+  const ModToolsScreen({
+    required this.name,
+  });
 
   void navigateToEditCommunities(BuildContext context) {
-    Routemaster.of(context).push(RouterConstants.editCommunities);
+    Routemaster.of(context).push('/edit-communities/$name');
   }
 
   @override

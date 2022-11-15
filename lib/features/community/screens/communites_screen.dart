@@ -4,7 +4,6 @@ import 'package:reddit_clone/core/common/error_text.dart';
 import 'package:reddit_clone/core/common/loader.dart';
 import 'package:reddit_clone/features/auth/auth_controller.dart';
 import 'package:reddit_clone/features/community/controller/community_controller.dart';
-import 'package:reddit_clone/router/route_name.dart';
 import 'package:routemaster/routemaster.dart';
 
 class CommunitiesScreen extends ConsumerWidget {
@@ -14,7 +13,7 @@ class CommunitiesScreen extends ConsumerWidget {
   });
 
   void navigateToModTools(BuildContext context) {
-    Routemaster.of(context).push(RouterConstants.modTools);
+    Routemaster.of(context).push('/mod-tools/$name');
   }
 
   @override

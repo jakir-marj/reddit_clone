@@ -20,16 +20,22 @@ final loggedInRoute = RouteMap(routes: {
   RouterConstants.createCommunity: (_) => const MaterialPage(
         child: CreateCommunityScreen(),
       ),
-  RouterConstants.modTools: (_) => const MaterialPage(
-        child: ModToolsScreen(),
-      ),
-  RouterConstants.editCommunities: (_) => const MaterialPage(
-        child: EditCommunitiesScreen(),
-      ),
+
   //Nasted Route
   '/r/:name': (route) => MaterialPage(
         child: CommunitiesScreen(
           name: route.pathParameters['name']!,
         ),
       ),
+
+  '/mod-tools/:name': (routedata) => MaterialPage(
+        child: ModToolsScreen(
+          name: routedata.pathParameters['name']!,
+        ),
+      ),
+  '//edit-communities/:name': (routedata) => MaterialPage(
+        child: EditCommunityScreen(
+          name: routedata.pathParameters['name']!,
+        ),
+      )
 });
